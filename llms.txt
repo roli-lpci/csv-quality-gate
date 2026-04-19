@@ -1,0 +1,25 @@
+csv-quality-gate
+
+Purpose:
+- Run CSV preflight validation before expensive pipeline steps.
+
+Use when:
+- You need batch CSV quality checks.
+- You want to fail fast before ETL, enrichment, or outreach runs.
+
+Do not use when:
+- You need semantic validation of records.
+- The input is not CSV.
+
+Command:
+- `csv-quality-gate check leads.csv`
+- `csv-quality-gate check leads.csv --profile outreach`
+- `csv-quality-gate check leads.csv --json`
+
+Output:
+- Text status: `PASS`, `WARN`, or `FAIL`
+- JSON object with `path`, `profile`, `rows`, `status`, and `issues`
+
+Limits:
+- Heuristic validation only
+- Outreach profile is opinionated

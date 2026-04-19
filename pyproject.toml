@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "csv-quality-gate"
 version = "0.1.0"
-description = "Fail fast on broken batch CSVs before expensive pipeline runs."
+description = "CSV preflight validation and batch CSV quality checks that fail fast before pipeline runs."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "Rolando Bosch"}]
-keywords = ["csv", "data-quality", "validation", "batch", "lint"]
+keywords = ["csv preflight validation", "batch CSV quality checks", "fail fast", "pipeline validation", "csv lint"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",

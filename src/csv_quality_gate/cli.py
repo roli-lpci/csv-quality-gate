@@ -10,18 +10,21 @@ from .validator import validate_csv
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="csv-quality-gate")
+    parser = argparse.ArgumentParser(
+        prog="csv-quality-gate",
+        description="Run CSV preflight validation and fail fast before expensive pipeline runs.",
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    check = subparsers.add_parser("check", help="validate one csv file")
-    check.add_argument("csv_path", help="path to csv file")
+    check = subparsers.add_parser("check", help="run batch CSV quality checks on one file")
+    check.add_argument("csv_path", help="path to the csv file to validate")
     check.add_argument(
         "--profile",
         default="generic",
         choices=sorted(PROFILES),
-        help="validation profile",
+        help="validation profile, for example generic or outreach",
     )
-    check.add_argument("--json", action="store_true", help="emit JSON output")
+    check.add_argument("--json", action="store_true", help="emit machine-readable JSON output")
     return parser
 
 
